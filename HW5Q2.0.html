@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function bubbleSort(numbers){
+        var A = numbers;
+        var n = numbers.length-1;
+        var swapped;
+        do {
+          swapped = false;
+          for(var i = 0; i < n; i++) {
+            if(A[i+1] > A[i]) {
+              var temp = A[i];
+              A[i] = A[i+1];
+              A[i+1] = temp;
+              swapped = true;
+            }
+          }
+          var str = A.toString()+"<br>"
+          document.write(str);
+          n--;
+        } while(swapped)
+      }
+
+      var input = new Array();
+      var count = 0;
+
+      do{
+        var num = prompt("Enter at least 4 numbers:" +"\nPress x and enter to see your list of numbers");
+        var number = Number(num);
+        if(!isNaN(number))
+        {
+          count++;
+          input.push(number);
+        }
+      } while (!(num == 'x' && count > 3));
+
+      bubbleSort(input);
+
+
+
+    </script>
+  </body>
+</html>

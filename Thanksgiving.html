@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+
+//function getTimeDiff()
+//{
+
+//}
+// Set the date we're counting down to
+var countDownDate = new Date("Nov 28, 2019 18:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+var now = new Date().getTime();
+
+var distance = countDownDate - now;
+  // Find the distance between now and the count down date
+
+function getTimeDiff(distance)
+{
+  return distance;
+
+}
+
+
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(getTimeDiff(distance) / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((getTimeDiff(distance) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((getTimeDiff(distance) % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((getTimeDiff(distance) % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+function imageOut(){
+
+  document.images[0].src="Virginia Tech.png";
+}
+function imageOver(){
+  document.images[0].src="rain.jpg";
+}
+
+function init(){
+  document.images[0].addEventListener("mouseover", imageOver, false);
+  document.images[0].addEventListener("mouseout", imageOut, false);
+  document.images[0].addEventListener("click", leaveAlert, false);
+
+}
+
+function leaveAlert(e) {
+
+  if (!confirm("Please confirm leaving this page"))
+    e.preventDefault();
+}
+
+    window.addEventListener("load", init, false);
+
+</script>
+<p> Click this image to go to the VT page </p>
+<a href="http://www.vt.edu"><p><img src="Virginia Tech.png" /></p></a>
+
+</body>
+</html>
